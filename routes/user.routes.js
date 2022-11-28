@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 const jsonParser = bodyParser.json();
 const { verifyUser, usersPost, usersPut, usersDelete } = require('../controllers/user.controllers');
-
 const { validateFields, validateJWT } = require('../middlewares');
 
 const router = Router();

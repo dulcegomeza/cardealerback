@@ -1,28 +1,26 @@
 
 const { User } = require('../models');
 const bcryptjs = require('bcryptjs');
-
+const { generateJWT } = require('../helpers/generate-jwt');
 
 
 const verifyUser = async (req, res) => {
 
-    const { user } = req;
+    const { user }  = req;
 
-    const token = await genrateJWT(user.uid);
+   const token = await generateJWT(user.uid)
 
     const userFound = {
-        uid: user.uid,
-        name:user.name,
-        lastName:user.lastName,
-        email:user.email,
-        address: user.address,
-        cp:user.cp,
-        city:user.state,
+        uid: user.id,
+        name: user.name,
+        lastName: user.lastName,
+        address:user.address,
+        city:user.city,
         state:user.state,
-        country:user.country
-
-    }
-
+        cp:user.cp,
+        country:user.country,
+        email:user.email
+      };
 
     res.json({ user:userFound, token })
 }
