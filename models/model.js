@@ -1,4 +1,3 @@
-
 const { Schema, model } = require('mongoose');
 
 const ModelSchema = Schema({
@@ -6,7 +5,6 @@ const ModelSchema = Schema({
         type: String,
         required: ['model required']
     },
-    
     imgs: {
         type: Array,
         default: ''
